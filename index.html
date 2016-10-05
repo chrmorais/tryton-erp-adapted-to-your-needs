@@ -53,7 +53,7 @@
 				<section>
                     <h2>What's tryton?</h2>
                     <h3 class="fragment">
-                    It is the base of a <span class="enfassis">complete business sulution.</span>
+                    It is the base of a <span class="enfassis">complete business solution.</span>
                     </h3>
                 </section>
 				<section>
@@ -61,18 +61,18 @@
                     <ul class="enfassis">
                         <li class="fragment">Database Agnostic: (PostgreSQL as Main database)</li>
                         <li class="fragment">WSGI Server</li>
-                        <li class="fragment">GTK Client (for Linux/Mac/Windows)</li>
+                        <li class="fragment">Desktop Client (for Linux/Mac/Windows)</li>
                         <li class="fragment">Web Client</li>
                     </ul>
                 </section>
 				<section>
                     <h2>Have a look at the clients:</h2>
-                    <h3>GTK</h3>
+                    <h3>Desktop</h3>
                     <img src="img/tryton_sale.png">
                 </section>
 				<section>
                     <h2>Have a look at the clients:</h2>
-                    <h3>Javascript</h3>
+                    <h3>Web</h3>
                     <img src="img/sao_sale.png">
                 </section>
 				<section>
@@ -108,7 +108,7 @@
                         <li class="fragment">New release every 6 months</li>
                         <li class="fragment">5 major versions supported (2.5 years)</li>
                         <li class="fragment">Your data will be migrated</li>
-                        <li class="fragment">You choose <span class="enfassis">when</span>to upgrade</li>
+                        <li class="fragment">You choose <span class="enfassis">when</span> to upgrade</li>
                     </ul>
                     <p class="fragment">Development version is (normally)<span class="enfassis"> stable</span></p>
                 </section>
@@ -137,7 +137,7 @@
                         <li class="fragment">Payment</li>
                         <li class="fragment">SEPA</li>
                         <li class="fragment">Asset Deprecation</li>
-                        <li class="fragment">Analytic</li>
+                        <li class="fragment">Analytic Accounting</li>
                     </ul>
                 </section>
 				<section>
@@ -145,7 +145,7 @@
                     <h3>Stock</h3>
                     <ul class="enfassis">
                         <li class="fragment">Warehouses and Locations</li>
-                        <li class="fragment">Shipment</li>
+                        <li class="fragment">Shipments</li>
                         <li class="fragment">Inventories</li>
                         <li class="fragment">Lots</li>
                         <li class="fragment">Lot Expiration</li>
@@ -204,7 +204,7 @@
                     <h2>Functional Areas</h2>
                     <h3>Other</h3>
                     <ul class="enfassis">
-                        <li class="fragment">WebDav/CalDAV/CarDAV</li>
+                        <li class="fragment">WebDav/CalDAV/CardDAV</li>
                         <li class="fragment">Authentication SMS</li>
                         <li class="fragment">Web User</li>
                         <li class="fragment">Flask-Tryton</li>
@@ -218,17 +218,53 @@
                         <li class="fragment">GNU Health</li>
                         <li class="fragment">Quality Control</li>
                         <li class="fragment">Bussiness Inteligence</li>
+                        <li class="fragment">Webshop connectors</li>
                         <li class="fragment">...</li>
-                        <li class="fragment">Whatever you want</li>
+                        <li class="fragment">Whatever you need</li>
                     </ul>
                 </section>
-                <!--
+				<section>
+                    <h2>Coding in Tryton</h2>
+                    <ul class="enfassis">
+                        <li class="fragment">KISS</li>
+                        <li class="fragment">DRY</li>
+                        <li class="fragment">Separate models and Views</li>
+                        <li class="fragment">PYSON</li>
+                        <li class="fragment">Domains</li>
+                        <li class="fragment">Mixins</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Coding in Tryton</h2>
+                    <pre class="fragment"><code>
+class Conference(Workflow, ModelSQL, ModelView):
+    'Conference'
+    __name__ = 'conference'
+    _states = {
+        'readonly': Eval('state') != 'draft',
+        }
+    _depends = ['state']
+    name = fields.Char('Name', required=True, states=_states, depends=_depends)
+    start_date = fields.Date('Start Date', required=True,
+        states=_states, depends=_depends)
+    end_date = fields.Date('End Date', states=_states, depends=_depends)
+    organizer = fields.Many2One('party.party', 'Organizer',
+        states=_states, depends=_depends)
+    state = fields.Selection([
+            ('draft', 'Draft'),
+            ('confirmed', 'Confirmed'),
+            ('done', 'Done'),
+            ], 'State', readonly=True, required=True)
+    del _states, _depends
+                    </code></pre>
+                </section>
 				<section>
                     <h2>Techinal Overview</h2>
                     <h3>ORM</h3>
                     <ul class="enfassis">
                         <li class="fragment">Active Record</li>
-                        <li class="fragment">Operate by batch(Save/Read (with cache)</li>
+                        <li class="fragment">Batch Save/Read (with cache)</li>
+                        <li class="fragment">Validation</li>
                         <li class="fragment">Schema creation</li>
                         <li class="fragment">Record Historization</li>
                         <li class="fragment">Computed fields</li>
@@ -244,7 +280,6 @@
                         <li class="fragment">Record Rules</li>
                     </ul>
                 </section>
-                -->
 				<section>
                     <h2>Demo</h2>
                 </section>
