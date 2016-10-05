@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Tryton - And Erp Adapted to Your Needs</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1>Tryton: An ERP adapted to your needs</h1>
+                    <p>Available on: <a target="_blank"
+                        href="http://pokoli.github.io/tryton-erp-adapted-to-your-needs">
+                        http://pokoli.github.io/tryton-erp-adapted-to-your-needs</a></p>
+                </section>
+				<section>
+                    <h2> Who am I?</h2>
+                    <h3 class="fragment enfassis">
+                        Sergi Almacellas Abellana</h3>
+                    <ul>
+                        <li class="fragment">(Python &hearts;) Programmer</li>
+                        <li class="fragment">Open source enthusiast</li>
+                        <li class="fragment">Tryton commiter since Nov 2013
+                        </li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>What's tryton?</h2>
+                    <h3 class="enfassis fragment">Is a three-tier high-level general
+                    purpose application platform under the license GPL-3
+                    written in Python and using PostgreSQL as database engine.
+                    </h3>
+                    <img class="fragment" src="img/saywhat.jpg">
+                </section>
+				<section>
+                    <h2>What's tryton?</h2>
+                    <h3 class="fragment">
+                    It is the base of a <span class="enfassis">complete business sulution.</span>
+                    </h3>
+                </section>
+				<section>
+                    <h2>Architecture</h2>
+                    <ul class="enfassis">
+                        <li class="fragment">Database Agnostic: (PostgreSQL as Main database)</li>
+                        <li class="fragment">WSGI Server</li>
+                        <li class="fragment">GTK Client (for Linux/Mac/Windows)</li>
+                        <li class="fragment">Web Client</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Have a look at the clients:</h2>
+                    <h3>GTK</h3>
+                    <img src="img/tryton_sale.png">
+                </section>
+				<section>
+                    <h2>Have a look at the clients:</h2>
+                    <h3>Javascript</h3>
+                    <img src="img/sao_sale.png">
+                </section>
+				<section>
+                    <h2>How is tryton?</h2>
+                    <img class="fragment" src="img/amazing.jpg">
+                </section>
+				<section>
+                    <h2>How is tryton?</h2>
+                    <ul class="enfassis">
+                        <li class="fragment">Open Source</li>
+                        <li class="fragment">Secure</li>
+                        <li class="fragment">Scalable</li>
+                        <li class="fragment">Flexible</li>
+                        <li class="fragment">Customizable</li>
+                        <li class="fragment">Consistent</li>
+                    </ul>
+                    <h3 class="fragment">Continously evolving</h3>
+                </section>
+				<section>
+                    <h2>Development Process</h2>
+                    <ol class="enfassis">
+                        <li class="fragment">BluePrint (discussion)</li>
+                        <li class="fragment">CodeReview</li>
+                        <li class="fragment">Automated Test + CI</li>
+                        <li class="fragment">Feature Freeze</li>
+                        <li class="fragment">PyPI</li>
+                        <li class="fragment">No API changes in released versions</li>
+                    </ol>
+                </section>
+				<section>
+                    <h2>Releases</h2>
+                    <ul class="enfassis">
+                        <li class="fragment">New release every 6 months</li>
+                        <li class="fragment">5 major versions supported (2.5 years)</li>
+                        <li class="fragment">Your data will be migrated</li>
+                        <li class="fragment">You choose <span class="enfassis">when</span>to upgrade</li>
+                    </ul>
+                    <p class="fragment">Development version is (normally)<span class="enfassis"> stable</span></p>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Master Data</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Users</li>
+                        <li class="fragment">Party</li>
+                        <li class="fragment">Country</li>
+                        <li class="fragment">Currency</li>
+                        <li class="fragment">Company</li>
+                        <li class="fragment">Bank</li>
+                        <li class="fragment">Products</li>
+                        <li class="fragment">Price Lists</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Accounting</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Account Chart</li>
+                        <li class="fragment">Fiscalyear and periods</li>
+                        <li class="fragment">Account Moves</li>
+                        <li class="fragment">Invoices</li>
+                        <li class="fragment">Payment</li>
+                        <li class="fragment">SEPA</li>
+                        <li class="fragment">Asset Deprecation</li>
+                        <li class="fragment">Analytic</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Stock</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Warehouses and Locations</li>
+                        <li class="fragment">Shipment</li>
+                        <li class="fragment">Inventories</li>
+                        <li class="fragment">Lots</li>
+                        <li class="fragment">Lot Expiration</li>
+                        <li class="fragment">Continental and Anglo Saxon accounting</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Sales</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Leads</li>
+                        <li class="fragment">Opportunities</li>
+                        <li class="fragment">Sales</li>
+                        <li class="fragment">Complaints</li>
+                        <li class="fragment">Promotions</li>
+                        <li class="fragment">Commissions</li>
+                        <li class="fragment">Shipment Cost</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Purchases</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Purchase</li>
+                        <li class="fragment">Purchase Request</li>
+                        <li class="fragment">Minimum stock rule</li>
+                        <li class="fragment">Supply on sale</li>
+                        <li class="fragment">Drop shipment</li>
+                        <li class="fragment">Shipment Cost</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Production</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Bill of Materials</li>
+                        <li class="fragment">Production</li>
+                        <li class="fragment">Steps and Operations</li>
+                        <li class="fragment">Work Center</li>
+                        <li class="fragment">Timesheet</li>
+                        <li class="fragment">Supply from production</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Project</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Timesheet</li>
+                        <li class="fragment">Projects and Task</li>
+                        <li class="fragment">Invoicing</li>
+                        <li class="fragment">Revenue</li>
+                        <li class="fragment">Planning</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Other</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">WebDav/CalDAV/CarDAV</li>
+                        <li class="fragment">Authentication SMS</li>
+                        <li class="fragment">Web User</li>
+                        <li class="fragment">Flask-Tryton</li>
+                        <li class="fragment">Celery-Tryton</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Functional Areas</h2>
+                    <h3>Third party modules</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">GNU Health</li>
+                        <li class="fragment">Quality Control</li>
+                        <li class="fragment">Bussiness Inteligence</li>
+                        <li class="fragment">...</li>
+                        <li class="fragment">Whatever you want</li>
+                    </ul>
+                </section>
+                <!--
+				<section>
+                    <h2>Techinal Overview</h2>
+                    <h3>ORM</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Active Record</li>
+                        <li class="fragment">Operate by batch(Save/Read (with cache)</li>
+                        <li class="fragment">Schema creation</li>
+                        <li class="fragment">Record Historization</li>
+                        <li class="fragment">Computed fields</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Techinal Overview</h2>
+                    <h3>Access Levels</h3>
+                    <ul class="enfassis">
+                        <li class="fragment">Model</li>
+                        <li class="fragment">Field</li>
+                        <li class="fragment">Button</li>
+                        <li class="fragment">Record Rules</li>
+                    </ul>
+                </section>
+                -->
+				<section>
+                    <h2>Demo</h2>
+                </section>
+				<section>
+                    <img src="img/questions.png">
+                </section>
+				<section>
+                    <h2>Get in touch:</h2>
+                    <p><a target="_blank"
+                        href="http://www.tryton.org/community.html">
+                        http://www.tryton.org/community.html
+                    </a></p>
+                    <h3>Or if you want to speak with me privately</h2>
+                    <p><a target="_blank"
+                        href="mailto:sergi@koopli.com">
+                        sergi (at) koopli (dot) com
+                    </a></p>
+                </section>
+				<section>
+                    <h1>Thank you!</h1>
+                    <p>The presentation code is avaiable on </p>
+                    <p><a target="_blank"
+                        href="http://github.com/pokoli/tryton-erp-adapted-to-your-needs">
+                        http://github.com/pokoli/tryton-erp-adapted-to-your-needs
+                    </a></p>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
