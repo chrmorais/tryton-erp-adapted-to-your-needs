@@ -43,7 +43,7 @@
                     </ul>
                 </section>
 				<section>
-                    <h2>What's tryton?</h2>
+                    <h2>What's Tryton?</h2>
                     <h3 class="enfassis fragment">Is a three-tier high-level general
                     purpose application platform under the license GPL-3
                     written in Python and using PostgreSQL as database engine.
@@ -51,7 +51,7 @@
                     <img class="fragment" src="img/saywhat.jpg">
                 </section>
 				<section>
-                    <h2>What's tryton?</h2>
+                    <h2>What's Tryton?</h2>
                     <h3 class="fragment">
                     It is the base of a <span class="enfassis">complete business solution.</span>
                     </h3>
@@ -64,14 +64,14 @@
                     <h2>Architecture</h2>
                     <ul class="enfassis">
                         <li class="fragment">Database Agnostic: (PostgreSQL as Main database)</li>
-                        <li class="fragment">WSGI Server</li>
+                        <li class="fragment">WSGI Server (JSON-RPC)</li>
                         <li class="fragment">Desktop Client (for Linux/Mac/Windows)</li>
                         <li class="fragment">Web Client</li>
                     </ul>
                 </section>
 				<section>
                     <h2>Have a look at the clients:</h2>
-                    <h3>Desktop</h3>
+                    <h3>Desktop (PyGTK)</h3>
                     <img src="img/tryton_sale.png">
                 </section>
 				<section>
@@ -80,16 +80,15 @@
                     <img src="img/sao_sale.png">
                 </section>
 				<section>
-                    <h2>How is tryton?</h2>
+                    <h2>How is Tryton?</h2>
                     <img class="fragment" src="img/amazing.jpg">
                 </section>
 				<section>
-                    <h2>How is tryton?</h2>
+                    <h2>How is Tryton?</h2>
                     <ul class="enfassis">
                         <li class="fragment">Open Source</li>
                         <li class="fragment">Secure</li>
                         <li class="fragment">Scalable</li>
-                        <li class="fragment">Flexible</li>
                         <li class="fragment">Customizable</li>
                         <li class="fragment">Consistent</li>
                     </ul>
@@ -117,10 +116,47 @@
                     <p class="fragment">Development version is (normally)<span class="enfassis"> stable</span></p>
                 </section>
 				<section>
+                    <h2>Coding in Tryton</h2>
+                    <ul class="enfassis">
+                        <li class="fragment">Python ZEN</li>
+                        <li class="fragment">KISS</li>
+                        <li class="fragment">DRY</li>
+                        <li class="fragment">PYSON</li>
+                        <li class="fragment">Domains and python-sql</li>
+                        <li class="fragment">Mixins</li>
+                    </ul>
+                </section>
+				<section>
+                    <h2>Coding in Tryton</h2>
+                    <pre class="fragment"><code>
+class Conference(Workflow, ModelSQL, ModelView):
+    'Conference'
+    __name__ = 'conference'
+    _states = {
+        'readonly': Eval('state') != 'draft',
+        }
+    _depends = ['state']
+    name = fields.Char('Name', required=True, states=_states, depends=_depends)
+    start_date = fields.Date('Start Date', required=True,
+        states=_states, depends=_depends)
+    end_date = fields.Date('End Date', states=_states, depends=_depends)
+    organizer = fields.Many2One('party.party', 'Organizer',
+        states=_states, depends=_depends)
+    state = fields.Selection([
+            ('draft', 'Draft'),
+            ('confirmed', 'Confirmed'),
+            ('done', 'Done'),
+            ], 'State', readonly=True, required=True)
+    del _states, _depends
+                    </code></pre>
+                </section>
+				<section>
                     <h2>Functional Areas</h2>
                     <h3>Master Data</h3>
                     <ul class="enfassis">
-                        <li class="fragment">Users</li>
+                        <li class="fragment">Users
+                            <span class="strong fragment">(and Access Rights)
+                            </span></li>
                         <li class="fragment">Party</li>
                         <li class="fragment">Country</li>
                         <li class="fragment">Currency</li>
@@ -151,6 +187,7 @@
                         <li class="fragment">Warehouses and Locations</li>
                         <li class="fragment">Shipments</li>
                         <li class="fragment">Inventories</li>
+                        <li class="fragment">Periods</li>
                         <li class="fragment">Lots</li>
                         <li class="fragment">Lot Expiration</li>
                         <li class="fragment">Continental and Anglo Saxon accounting</li>
@@ -220,6 +257,7 @@
                     <h3>Third party modules</h3>
                     <ul class="enfassis">
                         <li class="fragment">GNU Health</li>
+                        <li class="fragment">GNU Health</li>
                         <li class="fragment">Quality Control</li>
                         <li class="fragment">Bussiness Inteligence</li>
                         <li class="fragment">Webshop connectors</li>
@@ -228,68 +266,22 @@
                     </ul>
                 </section>
 				<section>
-                    <h2>Coding in Tryton</h2>
+                    <h2>Functional Areas</h2>
+                    <h3>Spanish Localization</h3>
                     <ul class="enfassis">
-                        <li class="fragment">KISS</li>
-                        <li class="fragment">DRY</li>
-                        <li class="fragment">Separate models and Views</li>
-                        <li class="fragment">PYSON</li>
-                        <li class="fragment">Domains</li>
-                        <li class="fragment">Mixins</li>
-                    </ul>
-                </section>
-				<section>
-                    <h2>Coding in Tryton</h2>
-                    <pre class="fragment"><code>
-class Conference(Workflow, ModelSQL, ModelView):
-    'Conference'
-    __name__ = 'conference'
-    _states = {
-        'readonly': Eval('state') != 'draft',
-        }
-    _depends = ['state']
-    name = fields.Char('Name', required=True, states=_states, depends=_depends)
-    start_date = fields.Date('Start Date', required=True,
-        states=_states, depends=_depends)
-    end_date = fields.Date('End Date', states=_states, depends=_depends)
-    organizer = fields.Many2One('party.party', 'Organizer',
-        states=_states, depends=_depends)
-    state = fields.Selection([
-            ('draft', 'Draft'),
-            ('confirmed', 'Confirmed'),
-            ('done', 'Done'),
-            ], 'State', readonly=True, required=True)
-    del _states, _depends
-                    </code></pre>
-                </section>
-				<section>
-                    <h2>Techinal Overview</h2>
-                    <h3>ORM</h3>
-                    <ul class="enfassis">
-                        <li class="fragment">Active Record</li>
-                        <li class="fragment">Batch Save/Read (with cache)</li>
-                        <li class="fragment">Validation</li>
-                        <li class="fragment">Schema creation</li>
-                        <li class="fragment">Record Historization</li>
-                        <li class="fragment">Computed fields</li>
-                    </ul>
-                </section>
-				<section>
-                    <h2>Techinal Overview</h2>
-                    <h3>Access Levels</h3>
-                    <ul class="enfassis">
-                        <li class="fragment">Model</li>
-                        <li class="fragment">Field</li>
-                        <li class="fragment">Button</li>
-                        <li class="fragment">Record Rules</li>
+                        <li class="fragment">Account Chart</li>
+                        <li class="fragment">Spanish Banks</li>
+                        <li class="fragment">Spanish Zips</li>
+                        <li class="fragment">AEAT 303</li>
+                        <li class="fragment">AEAT 340</li>
+                        <li class="fragment">AEAT 347</li>
+                        <li class="fragment">AEAT 349</li>
+                        <li class="fragment">Bank Statement (N43)</li>
                     </ul>
                 </section>
 				<section>
                     <h2>Demo</h2>
                     <img src="img/livedemo.jpg">
-                </section>
-				<section>
-                    <img src="img/questions.png">
                 </section>
 				<section>
                     <h2>Get in touch:</h2>
@@ -302,6 +294,9 @@ class Conference(Workflow, ModelSQL, ModelView):
                         href="mailto:sergi@koopli.com">
                         sergi (at) koopli (dot) com
                     </a></p>
+                </section>
+				<section>
+                    <img src="img/questions.png">
                 </section>
 				<section>
                     <img src="img/thankyou.jpg">
